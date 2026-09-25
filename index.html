@@ -1,1 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Edgardo de Real — Real Estate & Gestión Patrimonial</title>
+<meta name="description" content="Bienes raíces y gestión patrimonial en Cancún y la Riviera Maya. Preventas auditadas, bodegas en preventa, portafolio directo y acceso off-market bajo el criterio de Inversión Blindada.">
+<meta name="theme-color" content="#0b0a08">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0b0a08',
+          ink2: '#141210',
+          ink3: '#1b1815',
+          linen: '#f4efe4',
+          muted: '#9c9484',
+          brass: '#b4915b',
+          brasslight: '#e4cda0',
+          brasssoft: '#7c6440',
+          jade: '#1b4744',
+          jadelight: '#5c948c',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'Georgia', 'Times New Roman', 'serif'],
+          sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{
+    --ink:#0b0a08; --ink2:#141210; --linen:#f4efe4; --muted:#9c9484;
+    --brass:#b4915b; --brasslight:#e4cda0; --jade:#1b4744; --jadelight:#5c948c;
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#0b0a08; --ink2:#141210; --linen:#f4efe4; --muted:#9c9484;
+      --brass:#b4915b; --brasslight:#e4cda0; --jade:#1b4744; --jadelight:#5c948c;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#0b0a08; --ink2:#141210; --linen:#f4efe4; --muted:#9c9484;
+    --brass:#b4915b; --brasslight:#e4cda0; --jade:#1b4744; --jadelight:#5c948c;
+  }
+  html{ scroll-padding-top: calc(5.5rem + env(safe-area-inset-top, 0px)); scroll-behavior:smooth; }
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--ink);
+    color:var(--linen);
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.font-display{ font-family:'Fraunces','Georgia','Times New Roman',serif; }
+
+  ::selection{ background:var(--brass); color:var(--ink); }
+  ::-webkit-scrollbar{ width:5px; }
+  ::-webkit-scrollbar-track{ background:var(--ink); }
+  ::-webkit-scrollbar-thumb{ background:var(--brasssoft); }
+
+  :focus-visible{ outline:1.5px solid var(--brass); outline-offset:3px; }
+
+  .container-p{ padding-left:1.5rem; padding-right:1.5rem; }
+  @media(min-width:1024px){ .container-p{ padding-left:3rem; padding-right:3rem; } }
+
+  .hairline{ border-color:rgba(244,239,228,0.09); }
+
+  .grain{
+    position:fixed; inset:0; z-index:1; pointer-events:none;
+    opacity:0.05; mix-blend-mode:overlay;
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+    padding:1rem 1.75rem; transition:all .35s cubic-bezier(.16,1,.3,1);
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--brass); color:var(--ink); }
+  .btn-primary:hover{ background:var(--brasslight); transform:translateY(-1px); }
+  .btn-secondary{ border:1px solid rgba(244,239,228,0.18); color:var(--linen); }
+  .btn-secondary:hover{ border-color:var(--brass); color:var(--brass); }
+
+  .link-arrow{ display:inline-flex; align-items:center; gap:.5rem; color:var(--brass); }
+  .link-arrow svg{ transition:transform .3s cubic-bezier(.16,1,.3,1); width:14px; height:14px; }
+  .link-arrow:hover svg{ transform:translateX(5px); }
+  .link-arrow:hover{ color:var(--brasslight); }
+
+  .tag{
+    display:inline-block; font-size:.68rem; letter-spacing:.04em;
+    padding:.3rem .7rem; border:1px solid rgba(180,145,91,0.35); color:var(--brass);
+  }
+
+  input,select,textarea{ background:var(--ink); color:var(--linen); }
+  input::placeholder{ color:#5c5648; }
+  select{ -webkit-appearance:none; appearance:none; }
+
+  .field{
+    width:100%; border:1px solid rgba(244,239,228,0.14); padding:.9rem 1rem;
+    font-size:.82rem; transition:border-color .25s;
+  }
+  .field:focus{ border-color:var(--brass); outline:none; }
+
+  /* Hero draw-in, single orchestrated moment */
+  .draw{ stroke-dasharray:2400; stroke-dashoffset:2400; animation:draw 2.6s cubic-bezier(.65,0,.35,1) forwards; }
+  .draw-d1{ animation-delay:.15s; }
+  .draw-d2{ animation-delay:.5s; }
+  .draw-d3{ animation-delay:.85s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .rise{ opacity:0; transform:translateY(14px); animation:rise .9s cubic-bezier(.16,1,.3,1) forwards; }
+  .rise-d1{ animation-delay:.1s; } .rise-d2{ animation-delay:.25s; } .rise-d3{ animation-delay:.4s; } .rise-d4{ animation-delay:.55s; }
+  @keyframes rise{ to{ opacity:1; transform:translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce){
+    .draw{ stroke-dashoffset:0; animation:none; }
+    .rise{ opacity:1; transform:none; animation:none; }
+    .reveal, .reveal-left, .reveal-right, .reveal-scale{ opacity:1 !important; transform:none !important; transition:none !important; }
+    #heroHorizon{ transform:none !important; }
+  }
+
+  /* Scroll-triggered reveal system */
+  .reveal, .reveal-left, .reveal-right, .reveal-scale{
+    transition-delay: var(--delay, 0ms);
+    transition-duration: .9s;
+    transition-timing-function: cubic-bezier(.16,1,.3,1);
+  }
+  .reveal{ opacity:0; transform:translateY(30px); transition-property:opacity, transform; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .reveal-left{ opacity:0; transform:translateX(-38px); transition-property:opacity, transform; }
+  .reveal-left.is-visible{ opacity:1; transform:translateX(0); }
+  .reveal-right{ opacity:0; transform:translateX(38px); transition-property:opacity, transform; }
+  .reveal-right.is-visible{ opacity:1; transform:translateX(0); }
+  .reveal-scale{ opacity:0; transform:scale(.92); transition-property:opacity, transform; }
+  .reveal-scale.is-visible{ opacity:1; transform:scale(1); }
+
+  #heroHorizon{ transition: transform .1s linear; will-change: transform; }
+
+  #mobileMenu{ transition:opacity .3s ease, visibility .3s ease; }
+  #mobileMenu.closed{ opacity:0; visibility:hidden; }
+  #mobileMenu.open{ opacity:1; visibility:visible; }
+
+  .site-header{
+    position:fixed; top:0; left:0; width:100%; z-index:50;
+    padding-top: calc(1.1rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 1.1rem;
+    background:rgba(11,10,8,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  }
+
+  .grid-wide{ overflow-x:auto; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- film grain texture, fully self-contained -->
+<svg class="grain" width="100%" height="100%">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header border-b hairline">
+  <div class="max-w-7xl mx-auto container-p flex justify-between items-center">
+    <a href="#top" class="flex flex-col leading-none">
+      <span class="font-display text-lg md:text-xl text-linen">Edgardo de Real</span>
+      <span class="text-[9px] tracking-[0.22em] text-brass mt-1">REAL ESTATE &amp; GESTIÓN PATRIMONIAL</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9 text-[13px] text-muted">
+      <a href="#modelos" class="hover:text-brass transition-colors">Modelos de inversión</a>
+      <a href="#auditoria" class="hover:text-brass transition-colors">Proceso de auditoría</a>
+      <a href="#oportunidades" class="hover:text-brass transition-colors">Portafolio</a>
+      <a href="#wealth" class="hover:text-brass transition-colors">Gestión Patrimonial</a>
+      <a href="#contacto" class="hover:text-brass transition-colors">Contacto</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="#contacto" class="hidden sm:inline-flex btn btn-primary">Agendar asesoría privada</a>
+      <button id="menuBtn" aria-label="Abrir menú" class="lg:hidden text-linen p-2">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="6" x2="20" y2="6"/><line x1="2" y1="11" x2="20" y2="11"/><line x1="2" y1="16" x2="20" y2="16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div id="mobileMenu" class="closed fixed inset-0 z-[60] bg-ink flex flex-col" style="padding-top: env(safe-area-inset-top, 0px);">
+  <div class="flex justify-between items-center container-p pt-6">
+    <span class="font-display text-lg text-linen">Edgardo de Real</span>
+    <button id="closeMenuBtn" aria-label="Cerrar menú" class="text-linen p-2">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="3" y1="3" x2="19" y2="19"/><line x1="19" y1="3" x2="3" y2="19"/></svg>
+    </button>
+  </div>
+  <nav class="flex-1 flex flex-col justify-center container-p gap-7 font-display text-3xl">
+    <a href="#modelos" class="menu-link text-linen hover:text-brass transition-colors">Modelos de inversión</a>
+    <a href="#auditoria" class="menu-link text-linen hover:text-brass transition-colors">Proceso de auditoría</a>
+    <a href="#oportunidades" class="menu-link text-linen hover:text-brass transition-colors">Portafolio</a>
+    <a href="#wealth" class="menu-link text-linen hover:text-brass transition-colors">Gestión Patrimonial</a>
+    <a href="#contacto" class="menu-link text-linen hover:text-brass transition-colors">Contacto</a>
+  </nav>
+  <div class="container-p pb-12">
+    <a href="#contacto" class="menu-link btn btn-primary w-full">Agendar asesoría privada</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative pt-40 pb-0 md:pt-48">
+  <div class="max-w-7xl mx-auto container-p relative z-10">
+    <div class="max-w-3xl">
+      <p class="rise text-sm text-muted leading-relaxed mb-6">Bienes raíces y gestión patrimonial en Cancún y la Riviera Maya</p>
+      <h1 class="rise rise-d1 font-display font-light text-[2.35rem] leading-[1.14] sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.1] text-linen">
+        Antes de mostrarle una oportunidad, ya la auditamos nosotros.
+      </h1>
+      <p class="rise rise-d2 mt-7 text-[15px] sm:text-base text-muted leading-relaxed max-w-[58ch]">
+        Auditamos y blindamos su inversión en preventas / adquisiciones residenciales, bodegas, locales comerciales y lotes o macrolotes para desarrollo. Si busca su villa ideal, gestionamos su patrimonio en el Caribe Mexicano con villas y propiedades en venta y en renta.
+      </p>
+
+      <div class="rise rise-d3 mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#contacto" class="btn btn-primary">Me interesa una propiedad de inversión</a>
+        <a href="#oportunidades" class="btn btn-secondary">Me interesa una propiedad para vivirla y disfrutarla</a>
+      </div>
+
+      <div class="rise rise-d4 mt-16 flex flex-wrap gap-x-10 gap-y-5 text-[13px] text-muted max-w-2xl">
+        <span class="pl-4 border-l border-brasssoft/60">Certeza jurídica verificada en cada operación</span>
+        <span class="pl-4 border-l border-brasssoft/60">Financiamiento directo, sin intereses, en preventa</span>
+        <span class="pl-4 border-l border-brasssoft/60">Acceso a inventario off-market</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- architectural line-art horizon -->
+  <div id="heroHorizon" class="relative mt-16 md:mt-24 w-full h-[220px] sm:h-[280px] lg:h-[340px] overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-ink z-10 pointer-events-none"></div>
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" class="w-full h-full">
+      <circle cx="1220" cy="120" r="58" fill="none" stroke="#b4915b" stroke-width="1" opacity="0.55" class="draw draw-d1"/>
+      <line x1="0" y1="230" x2="1440" y2="230" stroke="#7c6440" stroke-width="1" opacity="0.45" class="draw draw-d2"/>
+      <g fill="none" stroke="#b4915b" stroke-width="1" opacity="0.7" class="draw draw-d2">
+        <rect x="90" y="150" width="34" height="80"/>
+        <rect x="132" y="120" width="26" height="110"/>
+        <rect x="166" y="165" width="40" height="65"/>
+        <rect x="214" y="95" width="22" height="135"/>
+        <rect x="244" y="140" width="30" height="90"/>
+        <polygon points="300,230 300,110 322,90 344,110 344,230"/>
+        <rect x="360" y="175" width="28" height="55"/>
+        <rect x="396" y="150" width="20" height="80"/>
+      </g>
+      <path d="M0,275 C 160,255 300,295 460,275 C 620,255 760,295 920,275 C 1080,255 1220,295 1440,272" fill="none" stroke="#5c948c" stroke-width="1.3" opacity="0.55" class="draw draw-d3"/>
+      <path d="M0,305 C 160,288 300,320 460,303 C 620,286 760,320 920,303 C 1080,286 1220,318 1440,300" fill="none" stroke="#5c948c" stroke-width="1" opacity="0.3" class="draw draw-d3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ DOS MODELOS ============ -->
+<section id="modelos" class="border-t hairline py-24 md:py-32 bg-ink2">
+  <div class="max-w-7xl mx-auto container-p">
+    <div class="max-w-2xl mb-16 reveal">
+      <h2 class="font-display font-light text-3xl sm:text-4xl text-linen leading-snug">Tres formas de invertir, un mismo filtro de auditoría</h2>
+      <p class="mt-5 text-muted text-[15px] leading-relaxed">Un mismo estándar de revisión legal, fiscal y de mercado sostiene tres modelos distintos, según lo que usted busca: un patrimonio para vivir o hacer negocio, un vehículo enfocado exclusivamente en retorno de inversión, o suelo estratégico para desarrollo futuro.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0">
+      <div class="lg:pr-16 lg:border-r hairline reveal-left">
+        <span class="tag">Para vivir o para negocio</span>
+        <h3 class="font-display font-light text-2xl text-linen mt-5">Inversión Blindada</h3>
+        <p class="mt-4 text-muted text-sm leading-relaxed max-w-[46ch]">
+          Le presentamos únicamente desarrollos en preventa que ya superaron nuestra auditoría al desarrollador. Es el mismo proceso que ofrecemos como servicio de asesoría, aplicado antes de recomendar cualquier oportunidad residencial.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-linen/85">
+          <li class="flex gap-3"><span class="text-brass">—</span>Título de propiedad, permisos y régimen de condominio verificados</li>
+          <li class="flex gap-3"><span class="text-brass">—</span>Estructura fiscal y financiera del desarrollador</li>
+          <li class="flex gap-3"><span class="text-brass">—</span>Track record, avance de obra y garantías de entrega</li>
+        </ul>
+        <a href="#oportunidades" class="link-arrow mt-7 text-sm">
+          Ver desarrollos en preventa auditados
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </a>
+      </div>
+
+      <div class="lg:pl-16 reveal-right" style="--delay:120ms">
+        <span class="tag">100% modelo de inversión</span>
+        <h3 class="font-display font-light text-2xl text-linen mt-5">Bodegas en Preventa</h3>
+        <p class="mt-4 text-muted text-sm leading-relaxed max-w-[46ch]">
+          Naves y bodegas en preventa, estructuradas como vehículo de inversión en el sector industrial y logístico. Sin componente habitacional: pensado exclusivamente para quienes buscan diversificar patrimonio hacia retorno.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-linen/85">
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Ubicación en corredores logísticos estratégicos</li>
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Mismo filtro legal, fiscal y de mercado que aplicamos a residencial</li>
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Precio de preventa con plusvalía proyectada por avance de obra</li>
+        </ul>
+        <a href="#oportunidades" class="link-arrow mt-7 text-sm">
+          Ver oportunidades industriales
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-16 border-t hairline grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
+      <div>
+        <span class="tag" style="border-color:rgba(92,148,140,0.4); color:#5c948c;">Suelo estratégico para desarrollo</span>
+        <h3 class="font-display font-light text-2xl text-linen mt-5">Lotes y Macrolotes para Desarrollo</h3>
+        <p class="mt-4 text-muted text-sm leading-relaxed max-w-[46ch]">
+          Terrenos y macrolotes en zonas de alto potencial de crecimiento, auditados bajo el mismo estándar legal y fiscal que aplicamos a cualquier otra oportunidad. Pensado para desarrolladores e inversionistas que buscan asegurar suelo antes de que el mercado lo descubra.
+        </p>
+      </div>
+      <div>
+        <ul class="space-y-3 text-sm text-linen/85">
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Lotes escriturados desde 220 m², 825 m² y 1,200 m², hasta macrolotes de 90, 500, 1,000 y 2,200 hectáreas en la Riviera Maya</li>
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Uso de suelo, medidas y titulación verificados</li>
+          <li class="flex gap-3"><span class="text-jadelight">—</span>Oportunidades off-market, antes de salir a mercado abierto</li>
+        </ul>
+        <a href="#contacto" class="link-arrow mt-7 text-sm">
+          Consultar disponibilidad de suelo
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDITORÍA ============ -->
+<section id="auditoria" class="border-t hairline py-24 md:py-32">
+  <div class="max-w-7xl mx-auto container-p">
+    <div class="max-w-2xl mb-16 reveal">
+      <h2 class="font-display font-light text-3xl sm:text-4xl text-linen leading-snug">Así funciona el filtro, antes de que una preventa llegue a usted</h2>
+      <p class="mt-5 text-muted text-[15px] leading-relaxed">Ningún desarrollo se presenta a nuestros clientes sin pasar, en orden, por estas tres revisiones.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 border-t hairline">
+      <div class="py-10 md:pr-10 md:border-r hairline reveal" style="--delay:0ms">
+        <span class="font-display italic text-brass text-sm">01</span>
+        <h3 class="font-display font-light text-xl text-linen mt-4">Auditoría legal</h3>
+        <p class="mt-3 text-muted text-sm leading-relaxed">Verificación de títulos de propiedad, licencias, régimen de propiedad en condominio y estatus notarial, para descartar vicios ocultos antes de recomendar el desarrollo.</p>
+      </div>
+      <div class="py-10 md:px-10 md:border-r hairline reveal" style="--delay:150ms">
+        <span class="font-display italic text-brass text-sm">02</span>
+        <h3 class="font-display font-light text-xl text-linen mt-4">Auditoría fiscal y financiera</h3>
+        <p class="mt-3 text-muted text-sm leading-relaxed">Revisión de la solvencia del desarrollador y sus corridas financieras reales, incluyendo los esquemas de financiamiento directo a tasa 0% durante la construcción.</p>
+      </div>
+      <div class="py-10 md:pl-10 reveal" style="--delay:300ms">
+        <span class="font-display italic text-brass text-sm">03</span>
+        <h3 class="font-display font-light text-xl text-linen mt-4">Otros puntos relevantes</h3>
+        <p class="mt-3 text-muted text-sm leading-relaxed">Track record del desarrollador, avance físico de obra, ubicación y demanda real de mercado, y garantías de entrega en tiempo y forma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPORTUNIDADES ============ -->
+<section id="oportunidades" class="border-t hairline py-24 md:py-32 bg-ink2">
+  <div class="max-w-7xl mx-auto container-p">
+    <div class="max-w-2xl mb-16 reveal">
+      <h2 class="font-display font-light text-3xl sm:text-4xl text-linen leading-snug">Portafolio</h2>
+      <p class="mt-5 text-muted text-[15px] leading-relaxed">Cinco formas de participar, según el tipo de activo y el objetivo del capital.</p>
+    </div>
+
+    <div class="divide-y hairline border-t border-b hairline">
+
+      <!-- Item 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 items-center">
+        <div class="lg:col-span-3 reveal-scale">
+          <svg viewBox="0 0 160 160" class="w-full max-w-[160px] h-auto" fill="none" stroke="#b4915b" stroke-width="1" opacity="0.85">
+            <rect x="45" y="30" width="70" height="110"/>
+            <line x1="45" y1="55" x2="115" y2="55"/><line x1="45" y1="80" x2="115" y2="80"/><line x1="45" y1="105" x2="115" y2="105"/>
+            <line x1="68" y1="30" x2="68" y2="140"/><line x1="92" y1="30" x2="92" y2="140"/>
+          </svg>
+        </div>
+        <div class="lg:col-span-9 reveal-right" style="--delay:100ms">
+          <span class="tag">Listo para entrega · auditado</span>
+          <h3 class="font-display font-light text-2xl text-linen mt-4">Valmira, Avenida Huayacán</h3>
+          <p class="mt-3 text-muted text-sm leading-relaxed max-w-[56ch]">Desarrollo listo para entrega en Avenida Huayacán, con compra mediante crédito bancario. Aprobado por el mismo filtro de auditoría que aplicamos a cualquier otra oportunidad.</p>
+          <div class="mt-6 flex flex-wrap items-center gap-6">
+            <div><span class="block text-[10px] text-muted">Inversión desde</span><span class="font-display text-lg text-linen">$3,300,000 MXN</span></div>
+            <a href="#contacto" class="link-arrow text-sm">Solicitar ficha técnica<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 items-center">
+        <div class="lg:col-span-3 reveal-scale">
+          <svg viewBox="0 0 160 160" class="w-full max-w-[160px] h-auto" fill="none" stroke="#b4915b" stroke-width="1" opacity="0.85">
+            <rect x="45" y="30" width="70" height="110"/>
+            <line x1="45" y1="55" x2="115" y2="55"/><line x1="45" y1="80" x2="115" y2="80"/><line x1="45" y1="105" x2="115" y2="105"/>
+            <line x1="68" y1="30" x2="68" y2="140"/><line x1="92" y1="30" x2="92" y2="140"/>
+          </svg>
+        </div>
+        <div class="lg:col-span-9 reveal-right" style="--delay:100ms">
+          <span class="tag">Preventa residencial auditada</span>
+          <h3 class="font-display font-light text-2xl text-linen mt-4">Valle Aurora, Cancún</h3>
+          <p class="mt-3 text-muted text-sm leading-relaxed max-w-[56ch]">Desarrollo residencial con financiamiento directo a tasa 0% de interés durante preventa. Aprobado por nuestro filtro de auditoría; adecuado tanto para vivienda como para renta.</p>
+          <div class="mt-6 flex flex-wrap items-center gap-6">
+            <div><span class="block text-[10px] text-muted">Inversión desde</span><span class="font-display text-lg text-linen">$4,100,000 MXN</span></div>
+            <a href="#contacto" class="link-arrow text-sm">Solicitar ficha técnica<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 items-center">
+        <div class="lg:col-span-3 reveal-scale">
+          <svg viewBox="0 0 160 160" class="w-full max-w-[160px] h-auto" fill="none" stroke="#5c948c" stroke-width="1" opacity="0.85">
+            <rect x="20" y="70" width="120" height="55"/>
+            <polygon points="20,70 80,35 140,70"/>
+            <line x1="45" y1="90" x2="45" y2="125"/><line x1="115" y1="90" x2="115" y2="125"/>
+          </svg>
+        </div>
+        <div class="lg:col-span-9 reveal-right" style="--delay:100ms">
+          <span class="tag" style="border-color:rgba(92,148,140,0.4); color:#5c948c;">Bodegas en preventa · Pool de rentas</span>
+          <h3 class="font-display font-light text-2xl text-linen mt-4">Bodegas en preventa, corredor Cancún–Riviera Maya</h3>
+          <p class="mt-3 text-muted text-sm leading-relaxed max-w-[56ch]">Bodegas en preventa bajo un modelo de pool de rentas: como inversionista, usted adquiere su participación directa en el negocio. Mismo filtro legal, fiscal y de mercado que aplicamos a cualquier otra oportunidad.</p>
+          <div class="mt-6">
+            <a href="#contacto" class="link-arrow text-sm">Solicitar detalle de la oportunidad<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 items-center">
+        <div class="lg:col-span-3 reveal-scale">
+          <svg viewBox="0 0 160 160" class="w-full max-w-[160px] h-auto" fill="none" stroke="#b4915b" stroke-width="1" opacity="0.85">
+            <rect x="20" y="75" width="120" height="45"/>
+            <rect x="35" y="55" width="35" height="20"/>
+            <circle cx="115" cy="135" r="16"/>
+            <line x1="20" y1="120" x2="140" y2="120"/>
+          </svg>
+        </div>
+        <div class="lg:col-span-9 reveal-right" style="--delay:100ms">
+          <span class="tag" style="font-size:0.85rem; padding:.4rem .9rem;">Portafolio directo · venta y renta</span>
+          <h3 class="font-display font-light text-3xl text-linen mt-4">Villas, Casas y Departamentos de Alto Calibre</h3>
+          <p class="mt-3 text-muted text-sm leading-relaxed max-w-[56ch]">Propiedades que gestionamos directamente, en venta y en renta: desde departamentos de $4, $5, $9, $12 y $30 MDP, hasta villas de hasta $27,000,000 MXN en Cumbres Cancún, y departamentos frente al campo de golf en Puerto Cancún.</p>
+          <div class="mt-6">
+            <a href="#contacto" class="link-arrow text-sm">Solicitar catálogo de portafolio directo<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12 items-center">
+        <div class="lg:col-span-3 reveal-scale">
+          <svg viewBox="0 0 160 160" class="w-full max-w-[160px] h-auto" fill="none" stroke="#5c948c" stroke-width="1" opacity="0.85">
+            <rect x="20" y="30" width="120" height="100"/>
+            <line x1="60" y1="30" x2="60" y2="130"/>
+            <line x1="100" y1="30" x2="100" y2="130"/>
+            <line x1="20" y1="80" x2="140" y2="80"/>
+          </svg>
+        </div>
+        <div class="lg:col-span-9 reveal-right" style="--delay:100ms">
+          <span class="tag" style="border-color:rgba(92,148,140,0.4); color:#5c948c;">Lotes y Macrolotes</span>
+          <h3 class="font-display font-light text-2xl text-linen mt-4">Desarrolla en Cancún</h3>
+          <p class="mt-3 text-muted text-sm leading-relaxed max-w-[56ch]">Opciones de lotes y macrolotes escriturados desde 220 m², 825 m² y 1,200 m², hasta macrolotes de 90, 500, 1,000 y 2,200 hectáreas en la Riviera Maya.</p>
+          <div class="mt-6">
+            <a href="#contacto" class="link-arrow text-sm">Consultar disponibilidad<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GESTIÓN PATRIMONIAL ============ -->
+<section id="wealth" class="border-t hairline py-24 md:py-32">
+  <div class="max-w-7xl mx-auto container-p">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 reveal-left">
+        <span class="tag">Administra y crece tus propiedades</span>
+        <h2 class="font-display font-light text-3xl sm:text-4xl text-linen leading-snug mt-5">Gestión Patrimonial</h2>
+        <p class="mt-5 text-muted text-[15px] leading-relaxed max-w-[46ch]">
+          Edgardo de Real es sinónimo de gestión patrimonial completa. Análisis, estrategia, estructura e Inversión Blindada aplicadas a su patrimonio, con acceso a propiedades exclusivas fuera de mercado.
+        </p>
+        <a href="#contacto" class="link-arrow mt-7 text-sm">
+          Solicitar acceso a Gestión Patrimonial
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </a>
+      </div>
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:pl-8 lg:border-l hairline reveal-right" style="--delay:120ms">
+        <div>
+          <h3 class="font-display font-light text-lg text-linen">Estrategia patrimonial</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Lectura del patrimonio inmobiliario existente y una hoja de ruta para su siguiente adquisición.</p>
+        </div>
+        <div>
+          <h3 class="font-display font-light text-lg text-linen">Off-market</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Acceso a propiedades exclusivas que no se ofrecen abiertamente en el mercado.</p>
+        </div>
+        <div>
+          <h3 class="font-display font-light text-lg text-linen">Gestión continua</h3>
+          <p class="mt-2 text-muted text-sm leading-relaxed">Seguimiento del portafolio inmobiliario del cliente como parte de su patrimonio total.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section id="contacto" class="border-t hairline py-24 md:py-32 bg-ink2">
+  <div class="max-w-5xl mx-auto container-p">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14">
+      <div class="lg:col-span-4 reveal-left">
+        <h2 class="font-display font-light text-3xl text-linen leading-snug">Agende una sesión estratégica</h2>
+        <p class="mt-5 text-muted text-[15px] leading-relaxed">Una consulta privada de 20 minutos con Edgardo de Real para revisar sus objetivos de inversión y qué modelo se ajusta mejor a su patrimonio.</p>
+        <p class="mt-8 text-xs text-muted leading-relaxed">Su información se maneja de forma confidencial y solo se utiliza para dar seguimiento a su solicitud.</p>
+      </div>
+
+      <form action="https://formspree.io/f/xnjlqlgb" method="POST" class="lg:col-span-8 space-y-5 reveal-right" style="--delay:120ms">
+        <div>
+          <label class="block text-[11px] tracking-wide text-muted mb-2">Nombre completo</label>
+          <input type="text" name="Nombre" class="field" placeholder="Nombre y apellido" required>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-[11px] tracking-wide text-muted mb-2">Correo</label>
+            <input type="email" name="_replyto" class="field" placeholder="nombre@empresa.com" required>
+          </div>
+          <div>
+            <label class="block text-[11px] tracking-wide text-muted mb-2">WhatsApp directo</label>
+            <div class="flex gap-2">
+              <select name="CodigoPais" class="field w-24">
+                <option value="+52" selected>+52</option>
+                <option value="+1">+1</option>
+                <option value="+34">+34</option>
+                <option value="+44">+44</option>
+              </select>
+              <input type="tel" name="WhatsApp" class="field" placeholder="998 000 0000" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-[11px] tracking-wide text-muted mb-2">Modelo de interés</label>
+            <select name="Sector_Interes" class="field" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="Inversion_Blindada">Inversión Blindada (preventa residencial)</option>
+              <option value="Bodegas_Preventa">Bodegas en preventa (100% inversión)</option>
+              <option value="Portafolio_Directo">Portafolio directo (compra / renta)</option>
+              <option value="Lotes_Macrolotes">Lotes y Macrolotes para Desarrollo</option>
+              <option value="Gestion_Patrimonial">Gestión Patrimonial</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] tracking-wide text-muted mb-2">Rango de inversión previsto</label>
+            <select name="Rango_Inversion" class="field" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option value="3-5M">$3M a $5M MXN</option>
+              <option value="5-10M">$5M a $10M MXN</option>
+              <option value="10M+">Más de $10M MXN / activos en USD</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full mt-2">Agendar sesión privada</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t hairline py-14">
+  <div class="max-w-7xl mx-auto container-p flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+    <div>
+      <div class="font-display text-lg text-linen">Edgardo de Real</div>
+      <div class="text-[10px] tracking-[0.2em] text-brass mt-1">REAL ESTATE &amp; GESTIÓN PATRIMONIAL</div>
+    </div>
+    <div class="flex items-center gap-6 text-xs text-muted">
+      <a href="https://www.instagram.com/edgardodereal_/" target="_blank" rel="noopener" class="hover:text-brass transition-colors inline-flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+        @edgardodereal_
+      </a>
+      <a href="https://gruposalo.com" target="_blank" rel="noopener" class="hover:text-brass transition-colors border-l hairline pl-6 inline-flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>
+        Grupo Salo Inmobiliario
+      </a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto container-p mt-10 pt-6 border-t hairline text-[10px] text-muted/70 text-center md:text-left">
+    © 2026 Edgardo de Real. Cancún, Quintana Roo, México.
+  </div>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/529981550066?text=Hola%20Edgardo%2C%20deseo%20coordinar%20una%20sesi%C3%B3n%20de%20asesor%C3%ADa%20privada." target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-40 flex items-center gap-2 pl-4 pr-5 py-3 bg-[#1e2a24] border border-jadelight/40 text-linen hover:border-brass transition-colors shadow-xl"
+   aria-label="Escribir por WhatsApp">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-jadelight"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.3c-.22.62-1.28 1.2-1.77 1.24-.45.04-.94.23-3.17-.66-2.68-1.07-4.4-3.8-4.53-3.98-.13-.18-1.08-1.44-1.08-2.74 0-1.3.68-1.94.92-2.2.24-.26.53-.33.7-.33h.5c.16 0 .38-.06.6.46.22.53.75 1.83.82 1.96.06.13.1.29.02.47-.08.18-.13.29-.26.44-.13.16-.27.35-.39.47-.13.13-.27.27-.11.53.15.26.68 1.12 1.47 1.82 1.01.9 1.86 1.18 2.12 1.31.26.13.42.11.57-.06.15-.18.65-.76.83-1.02.18-.26.35-.21.6-.13.24.09 1.55.73 1.82.86.26.13.44.2.5.31.06.13.06.72-.16 1.35z"/></svg>
+  <span class="text-xs tracking-wide">WhatsApp</span>
+</a>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function openMenu(){ mobileMenu.classList.remove('closed'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ mobileMenu.classList.remove('open'); mobileMenu.classList.add('closed'); document.body.style.overflow=''; }
+  menuBtn && menuBtn.addEventListener('click', openMenu);
+  closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
+  document.querySelectorAll('.menu-link').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Scroll-triggered reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Hero horizon parallax
+  const heroHorizon = document.getElementById('heroHorizon');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(heroHorizon && !reduceMotion){
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if(!ticking){
+        requestAnimationFrame(() => {
+          const y = Math.min(window.scrollY * 0.12, 44);
+          heroHorizon.style.transform = `translateY(${y}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+</script>
+
+</body>
+</html>
